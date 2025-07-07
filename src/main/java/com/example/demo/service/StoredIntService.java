@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class StoredIntService {
     public int getStoredInt() {
-        File filePath = new File("/tmp/stored-int.txt");
+        File filePath = new File(System.getProperty("java.io.tmpdir"), "stored-int.txt");
+
 
         try {
             if (filePath.exists()) {
-                try (Scanner scanner = new Scanner(filePath); ) {
+                try (Scanner scanner = new Scanner(filePath) ) {
                     if (scanner.hasNextLine()) {
                         String line = scanner.nextLine();
                         return Integer.parseInt(line);

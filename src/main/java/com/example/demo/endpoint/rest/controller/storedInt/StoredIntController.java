@@ -10,7 +10,7 @@ public class StoredIntController {
     private StoredIntService storedIntService;
 
     @GetMapping("/stored-int")
-    public int getStoredInd() {
+    public int getStoredInt() {
         return storedIntService.getStoredInt();
     }
 }
